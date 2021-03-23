@@ -1,17 +1,14 @@
-const express = require('express');
-
+"use strict";
+const controllers = require("./controllers.js");
+const express = require("express");
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.send('hello from API');
-});
+// routes
 
-router.use('/albums', require('./albums'));
-router.use('/artists', require('./artists'));
-router.use('/genres', require('./genres'));
-router.use('/media-types', require('./media-types'));
-router.use('/playlists', require('./playlists'));
-router.use('/tracks', require('./tracks'));
-
+router.get("/restaurants", controllers.getAllResturants);
+router.get("/restaurants/:id", controllers.getOneResturant);
+router.post("/restaurants", controllers.addResturant);
+router.put("/restaurants/:id", controllers.updateResturant);
+router.delete("/restaurants/:id", controllers.deleteResturant);
 
 module.exports = router;
