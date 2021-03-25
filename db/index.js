@@ -9,7 +9,8 @@ const devConfig = {
   port: process.env.PG_PORT,
 };
 const proConfig = {
-  connectionString: process.env.DATABASE_URL,
+  connectionString:
+    "postgres://oonxsikiusxlvk:6117d33bc1503226e740e7680dc84c43104afea4969f9ab3467481acc302d945@ec2-54-161-239-198.compute-1.amazonaws.com:5432/d48k11forn8qhq",
 };
 
 const pool = new Pool(
