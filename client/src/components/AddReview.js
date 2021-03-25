@@ -18,7 +18,7 @@ const AddReview = () => {
         review: reviewText,
         rating: rating,
       });
-      console.log(response);
+
       history.push("/");
       history.push(location.pathname);
     } catch (err) {

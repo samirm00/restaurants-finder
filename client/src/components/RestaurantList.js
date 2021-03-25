@@ -11,8 +11,8 @@ const RestaurantList = (props) => {
     const fetchData = async () => {
       try {
         const response = await RestaurantFinder.get("/");
-        console.log(response.data);
-        setRestaurants(response.data.data);
+
+        setRestaurants(response.data.data.restaurants);
       } catch (err) {
         console.error(err);
       }
@@ -25,12 +25,12 @@ const RestaurantList = (props) => {
     e.stopPropagation();
     try {
       const response = await RestaurantFinder.delete(`/${id}`);
+
       setRestaurants(
         restaurants.filter((restaurant) => {
           return restaurant.id !== id;
         })
       );
-      console.log(response.data);
     } catch (err) {
       console.error(err);
     }
@@ -45,18 +45,18 @@ const RestaurantList = (props) => {
     history.push(`/restaurants/${id}`);
   };
 
-    const renderRating = (restaurant) => {
-      if (!restaurant.count) {
-        return <span className="text-warning">0 reviews</span>;
-      }
-      return (
-        <>
-          <StarRating rating={restaurant.id} />
-          <span className="text-warning ml-1">({restaurant.count})</span>
-        </>
-      );
-    };
-  
+  const renderRating = (restaurant) => {
+    if (!restaurant.count) {
+      return <span className="text-warning">0 reviews</span>;
+    }
+    return (
+      <>
+        <StarRating rating={restaurant.id} />
+        <span className="text-warning ml-1">({restaurant.count})</span>
+      </>
+    );
+  };
+
   return (
     <div className="list-group">
       <table className="table table-hover table-dark">
@@ -102,18 +102,6 @@ const RestaurantList = (props) => {
                 </tr>
               );
             })}
-          {/* <tr>
-            <td>BelgaQueen</td>
-            <td>Brussels</td>
-            <td>€€€</td>
-            <td>Rating</td>
-            <td>
-              <button className=" btn btn-warning">Edit</button>
-            </td>
-            <td>
-              <button className=" btn btn-danger">Delete</button>
-            </td>
-          </tr> */}
         </tbody>
       </table>
     </div>
