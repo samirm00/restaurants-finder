@@ -26,7 +26,7 @@ app.use(
 // log to console
 app.use(morgan("dev"));
 
-app.use("/", express.static(path.join(__dirname, "client")));
+app.use("/", express.static(path.join(__dirname, "client/build")));
 
 app.use("/api", api);
 
