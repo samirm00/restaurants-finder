@@ -8,16 +8,16 @@ const Reviews = ({ reviews }) => {
         return (
           <div
             key={review.id}
-            className="card text-white bg-primary mb-3 mr-4 "
+            className="card text-white bg-primary mb-3 mr-4 m-5"
             style={{ maxWidth: "30%" }}
           >
-            <div className="card-header d-flex justify-between">
+            <div className="card-header d-flex justify-content-between">
               <span>{review.name}</span>
               <span>
                 <StarRating rating={review.rating} />
               </span>
             </div>
-            <div className="card-body">
+            <div className="card-body d-flex justify-center">
               <p className="card-text">{review.review}</p>
             </div>
           </div>

@@ -44,7 +44,9 @@ const AddReview = () => {
           <br></br>
 
           <div className=" form-group col-4">
-            <label htmlFor="rating">Rating</label>
+            <label className="p-1" htmlFor="rating">
+              Rating
+            </label>
             <select
               value={rating}
               onChange={(e) => setRating(e.target.value)}
@@ -70,6 +72,7 @@ const AddReview = () => {
             className="form-control"
           ></textarea>
         </div>
+        <br></br>
         <button
           type="submit"
           onClick={handleSubmitReview}
