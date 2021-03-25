@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import RestaurantFinder from "../api/RestaurantFinder";
 import { RestaurantsContext } from "../context /RestaurantsContext";
 import StarRating from "../components/StarRating";
-import Reviews from "../components/Reviews";
+//import Reviews from "../components/Reviews";
 import AddReview from "../components/AddReview";
 
 export const RestaurantDetailPage = () => {
@@ -30,10 +30,10 @@ export const RestaurantDetailPage = () => {
       {selectedRestaurant && (
         <>
           <h1 className="text-center display-1">
-            {selectedRestaurant.data[0].name}
+          {/*  {selectedRestaurant.data[0].name} */}
           </h1>
           <div className="mt-3">
-            <Reviews reviews={selectedRestaurant.reviews} />
+          {/*  <Reviews reviews={selectedRestaurant.reviews} />*/}
             <AddReview />
           </div>
         </>
