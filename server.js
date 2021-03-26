@@ -1,6 +1,5 @@
 "use strict";
 
-require("dotenv").config();
 const fs = require("fs");
 const path = require("path");
 const express = require("express");
@@ -25,8 +24,9 @@ app.use(
 );
 // log to console
 app.use(morgan("dev"));
-
-app.use("/", express.static(path.join(__dirname, "client/build")));
+if (process.env.NODE_ENV === "production") {
+  app.use("/", express.static(path.join(__dirname, "client/build")));
+}
 
 app.use("/api", api);
 
