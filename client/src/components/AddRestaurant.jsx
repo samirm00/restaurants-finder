@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-import RestaurantFinder from "../api/RestaurantFinder";
-import { RestaurantsContext } from "../context /RestaurantsContext";
+import RestaurantFinder from "../apis/RestaurantFinder";
+import { RestaurantsContext } from "../context/RestaurantsContext";
 
 const AddRestaurant = () => {
   const { addRestaurants } = useContext(RestaurantsContext);
@@ -12,21 +12,19 @@ const AddRestaurant = () => {
     e.preventDefault();
     try {
       const response = await RestaurantFinder.post("/", {
-        name: name,
-        location: location,
+        name,
+        location,
         price_range: priceRange,
       });
-
+      console.log(response.data.data);
       addRestaurants(response.data.data.restaurant);
     } catch (err) {
-      console.error(err);
+      console.log(err);
     }
   };
   return (
     <div className="mb-4">
-      <br></br>
       <form action="">
-        <br></br>
         <div className="form-row">
           <div className="col">
             <input
@@ -37,17 +35,15 @@ const AddRestaurant = () => {
               placeholder="name"
             />
           </div>
-          <br></br>
           <div className="col">
             <input
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              type="text"
               className="form-control"
+              type="text"
               placeholder="location"
             />
           </div>
-          <br></br>
           <div className="col">
             <select
               value={priceRange}
@@ -62,10 +58,9 @@ const AddRestaurant = () => {
               <option value="5">€€€€€</option>
             </select>
           </div>
-          <br></br>
           <button
-            type="submit"
             onClick={handleSubmit}
+            type="submit"
             className="btn btn-primary"
           >
             Add

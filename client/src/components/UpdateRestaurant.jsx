@@ -1,20 +1,20 @@
-import React, { useState, useEffect, useContext } from "react";
-import { useHistory, useParams } from "react-router";
-import RestaurantFinder from "../api/RestaurantFinder";
-import { RestaurantsContext } from "../context /RestaurantsContext";
+import React, { useState, useContext, useEffect } from "react";
+import { useParams, useHistory } from "react-router-dom";
+import { RestaurantsContext } from "../context/RestaurantsContext";
+import RestaurantFinder from "../apis/RestaurantFinder";
 
 const UpdateRestaurant = (props) => {
+  const { id } = useParams();
   let history = useHistory();
   const { restaurants } = useContext(RestaurantsContext);
-  const { id } = useParams();
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
-  const [priceRange, setPriceRange] = useState(1);
+  const [priceRange, setPriceRange] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await RestaurantFinder.get(`/${id}`);
-      console.log(response);
+      console.log(response.data.data);
       setName(response.data.data.restaurant.name);
       setLocation(response.data.data.restaurant.location);
       setPriceRange(response.data.data.restaurant.price_range);
@@ -25,22 +25,17 @@ const UpdateRestaurant = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const updatedRestaurant = await RestaurantFinder.put(`/${id}`, {
-      name: name,
-      location: location,
+      name,
+      location,
       price_range: priceRange,
     });
-    console.log(updatedRestaurant);
-
     history.push("/");
   };
 
   return (
     <div>
-      <br></br>
-      <form>
-        <br></br>
+      <form action="">
         <div className="form-group">
           <label htmlFor="name">Name</label>
           <input
@@ -51,7 +46,7 @@ const UpdateRestaurant = (props) => {
             type="text"
           />
         </div>
-        <br></br>
+
         <div className="form-group">
           <label htmlFor="location">Location</label>
           <input
@@ -62,7 +57,6 @@ const UpdateRestaurant = (props) => {
             type="text"
           />
         </div>
-        <br></br>
         <div className="form-group">
           <label htmlFor="price_range">Price Range</label>
           <input
@@ -73,7 +67,6 @@ const UpdateRestaurant = (props) => {
             type="number"
           />
         </div>
-        <br></br>
         <button
           type="submit"
           onClick={handleSubmit}
