@@ -1,6 +1,6 @@
 # Restaurants finder
 
-> A full-stack app allows the user to find different resturants with different rating , it also allows th user to add , edit , delete and add a review and rating for a restaurant
+> A full-stack app allows the user to find different restaurants with different rating , it also allows the user to add , edit , delete and add a review and rating for a restaurant
 
 ## Table of contents
 
@@ -15,7 +15,7 @@
 
 ## General info
 
-> A full-stack app resturants finder allows the user to easily find different resturants with review and rating
+> A full-stack app restaurants finder allows the user to easily find different restaurants with review and rating
 
 ## Screenshots
 
@@ -91,7 +91,7 @@ Project is: _in progress_
 
 ## Inspiration
 
-Resturants finder by freeCodeCamp.org
+Restaurants finder by freeCodeCamp.org
 
 ## Contact
 

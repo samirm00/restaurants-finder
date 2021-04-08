@@ -1,12 +1,12 @@
 # Backlog
 
-A collection of user stories you can choose from. Stories inside of each priority level are not necessarily in order, it's up to your group to decide how they fit into your strategy. These are also just suggestion, feel free to change them or create your own!
+A collection of user stories you can choose from. Stories inside each priority level are not necessarily in order, it's up to your group to decide how they fit into your strategy. These are also just suggestion, feel free to change them or create your own!
 
 ## Must-Haves
 
 > these are necessary for basic usability
 
-- As user, I want to open the restaurant finder to see a list the resturants
+- As user, I want to open the restaurant finder to see a list the restaurants
 
 - As user , I want to edit a new restaurant to the list
 
