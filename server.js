@@ -46,6 +46,7 @@ app.get("/api/v1/restaurants", (req, res) => {
         },
       });
     }
+
     // db.close((err) => {
     //   if (err) {
     //     console.error(err);
