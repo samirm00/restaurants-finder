@@ -121,7 +121,7 @@ app.post("/api/v1/restaurants", (req, res) => {
           res.status(200).json({
             status: "success",
             data: {
-              retaurant: newRestaurant,
+              restaurant: newRestaurant,
             },
           });
         }
