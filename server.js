@@ -46,12 +46,12 @@ app.get("/api/v1/restaurants", (req, res) => {
         },
       });
     }
-    db.close((err) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-    });
+  //  db.close((err) => {
+   //   if (err) {
+    //    console.error(err);
+     //   return;
+    //  }
+ //   });
   });
 });
 
@@ -87,12 +87,7 @@ app.get("/api/v1/restaurants/:id", (req, res) => {
     }
   });
 
-  db.close((err) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-  });
+ 
 });
 
 // add a restaurant
@@ -128,12 +123,7 @@ app.post("/api/v1/restaurants", (req, res) => {
       }
     );
 
-    db.close((err) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-    });
+  
   });
 });
 
@@ -173,12 +163,7 @@ app.put("/api/v1/restaurants/:id", (req, res) => {
     }
   });
 
-  db.close((err) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-  });
+ 
 });
 
 // delete a restaurant
@@ -196,12 +181,7 @@ app.delete("/api/v1/restaurants/:id", (req, res) => {
       res.send("the resturant has been deleted");
     }
 
-    db.close((err) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-    });
+   
   });
 });
 
@@ -242,12 +222,7 @@ app.post("/api/v1/restaurants/:id/addReview", (req, res) => {
       );
     }
 
-    db.close((err) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-    });
+    
   });
 });
 
