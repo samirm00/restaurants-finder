@@ -36,8 +36,6 @@ app.get("/api/v1/restaurants", (req, res) => {
       console.error(err);
       return;
     } else {
-      console.log(rows);
-
       res.status(200).json({
         status: "success",
         results: rows.length,
@@ -46,13 +44,6 @@ app.get("/api/v1/restaurants", (req, res) => {
         },
       });
     }
-
-    // db.close((err) => {
-    //   if (err) {
-    //     console.error(err);
-    //     return;
-    //   }
-    // });
   });
 });
 
@@ -66,15 +57,12 @@ app.get("/api/v1/restaurants/:id", (req, res) => {
     if (err) {
       console.error(err);
     } else {
-      console.log(restaurant);
-
       db.all(
         `SELECT *  FROM reviews WHERE  restaurant_id = ${id};`,
         (err, reviews) => {
           if (err) {
             console.error(err);
           } else {
-            console.log(reviews);
             res.status(200).json({
               status: "success",
               data: {
@@ -87,13 +75,6 @@ app.get("/api/v1/restaurants/:id", (req, res) => {
       );
     }
   });
-
-  // db.close((err) => {
-  //   if (err) {
-  //     console.error(err);
-  //     return;
-  //   }
-  // });
 });
 
 // add a restaurant
@@ -128,13 +109,6 @@ app.post("/api/v1/restaurants", (req, res) => {
         }
       }
     );
-
-    // db.close((err) => {
-    //   if (err) {
-    //     console.error(err);
-    //     return;
-    //   }
-    // });
   });
 });
 
@@ -173,13 +147,6 @@ app.put("/api/v1/restaurants/:id", (req, res) => {
       );
     }
   });
-
-  // db.close((err) => {
-  //   if (err) {
-  //     console.error(err);
-  //     return;
-  //   }
-  // });
 });
 
 // delete a restaurant
@@ -196,13 +163,6 @@ app.delete("/api/v1/restaurants/:id", (req, res) => {
       console.log("Resturant has been deleted");
       res.send("the resturant has been deleted");
     }
-
-    // db.close((err) => {
-    //   if (err) {
-    //     console.error(err);
-    //     return;
-    //   }
-    // });
   });
 });
 
@@ -242,13 +202,6 @@ app.post("/api/v1/restaurants/:id/addReview", (req, res) => {
         }
       );
     }
-
-    // db.close((err) => {
-    //   if (err) {
-    //     console.error(err);
-    //     return;
-    //   }
-    // });
   });
 });
 
